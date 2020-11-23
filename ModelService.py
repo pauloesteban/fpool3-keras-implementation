@@ -13,7 +13,7 @@ class ModelService(object):
             optimizer=keras.optimizers.Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, amsgrad=True)  ,
             metrics=['accuracy'])
 
-        early_stopping = keras.callbacks.callbacks.EarlyStopping(monitor='val_loss', min_delta=0,
+        early_stopping = keras.callbacks.EarlyStopping(monitor='val_loss', min_delta=0,
                          patience=configuration.early_stop_if_loss_functions_does_not_improve_limit,
                          verbose=1, mode='min', baseline=None, restore_best_weights=True)
 
