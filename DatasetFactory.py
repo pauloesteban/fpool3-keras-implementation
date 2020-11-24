@@ -14,7 +14,7 @@ def load_wav_files_and_assign_their_labels(wav_files_directory, label_for_files_
 
 def load_training_data_and_its_labels():
     training_data_positives = load_wav_files_and_assign_their_labels(
-        Path("dataset/training/positive-identification"), 'training-positive-identification')
+        Path("../training_positive_identification"), 'training-positive-identification')
     training_data_negatives = load_wav_files_and_assign_their_labels(
         Path("dataset/training/negative-identification"), 'training-negative-identification')
 
@@ -29,7 +29,7 @@ def load_training_data_and_its_labels():
 
 def load_evaluation_data_and_its_labels():
     evaluation_data_positives = load_wav_files_and_assign_their_labels(
-        Path("dataset/evaluation/positive-identification"), 'training-positive-identification')
+        Path("../evaluation_positive_identification"), 'training-positive-identification')
     evaluation_data_negatives = load_wav_files_and_assign_their_labels(
         Path("dataset/evaluation/negative-identification"), 'training-negative-identification')
 
