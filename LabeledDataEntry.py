@@ -6,7 +6,7 @@ class LabeledDataEntry(object):
 
     def __init__(self, file_path, label):
         self.file_path = file_path
-        self.sample_rate = 16000 #read from file
+        self.sample_rate = 24000 #read from file
 
         if label == 'training-negative-identification':
             self.label = 0
@@ -22,5 +22,6 @@ class LabeledDataEntry(object):
         self.remove_unsuitable_training_file()
 
     def remove_unsuitable_training_file(self):
+        print(self.mfcc.shape[1])
         if self.mfcc.shape[1] != 32:
             os.remove(self.file_path)
