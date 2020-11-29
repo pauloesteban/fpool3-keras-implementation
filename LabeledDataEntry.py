@@ -16,7 +16,7 @@ class LabeledDataEntry(object):
         self.extract_audio_features()
 
     def extract_audio_features(self):
-        audio, sample_rate = librosa.load(self.file_path, sr=self.sample_rate, res_type='sinc_best')
+        audio, sample_rate = librosa.load(self.file_path, sr=self.sample_rate, res_type='kaiser_best')
         self.mfcc = librosa.feature.mfcc(y=audio, sr=sample_rate, n_mfcc=40)
         self.mfccScaled = np.mean(self.mfcc.T, axis=0)
         self.remove_unsuitable_training_file()
