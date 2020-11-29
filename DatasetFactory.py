@@ -23,7 +23,7 @@ def load_training_data_and_its_labels():
 
     x_data = list(map(lambda x: x.mfcc, all_training_data))
     y_labels = list(map(lambda x: x.label, all_training_data))
-    x_data = np.reshape(x_data, [670, 40, 32, 1])  # why?
+    x_data = np.reshape(x_data, [411, 40, 32, 1])  # Tensor: number of wav files * number of mfcc * t * 1
 
     return np.asarray(x_data),  np.array(y_labels)
 
