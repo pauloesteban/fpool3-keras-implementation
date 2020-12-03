@@ -20,8 +20,8 @@ class LabeledDataEntry(object):
             self.file_path,
             sr=self.sample_rate,
             res_type='kaiser_best')
-        print(audio.shape)
         self.mfcc = librosa.feature.mfcc(y=audio, sr=sample_rate, n_mfcc=40)
+        print(f"{audio.shape}, {mfcc.shape}")
         self.mfccScaled = np.mean(self.mfcc.T, axis=0)
         #self.remove_unsuitable_training_file()
 
