@@ -1,2 +1,3 @@
 .DS_Store
-dataset/**/positive-identification/
+dataset/training/positive-identification/
+dataset/evaluation/positive-identification/
