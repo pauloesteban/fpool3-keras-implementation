@@ -8,6 +8,7 @@ def load_wav_files_and_assign_their_labels(wav_files_directory, label_for_files_
 
     for wav_file in wav_files_directory.iterdir():
         if wav_file == "dataset/training/positive-identification/.gitignore":
+            print(wav_file)
             continue
         labeled_data_entry = LabeledDataEntry(wav_file, label_for_files_found_in_directory)
         labeled_data_entries.append(labeled_data_entry)
