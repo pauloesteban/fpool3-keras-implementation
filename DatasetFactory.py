@@ -7,9 +7,9 @@ def load_wav_files_and_assign_their_labels(wav_files_directory, label_for_files_
     labeled_data_entries = []
 
     for wav_file in wav_files_directory.iterdir():
-        if wav_file == Path("dataset/training/positive-identification/.gitignore"):
+        if wav_file == Path("dataset/training/positive-identification/.gitignore") \
+            or wav_file == Path("dataset/evaluation/positive_identification/.gitignore"):
             continue
-        print(type(wav_file))
         labeled_data_entry = LabeledDataEntry(wav_file, label_for_files_found_in_directory)
         labeled_data_entries.append(labeled_data_entry)
 
@@ -18,7 +18,6 @@ def load_wav_files_and_assign_their_labels(wav_files_directory, label_for_files_
 def load_training_data_and_its_labels():
     training_data_positives = load_wav_files_and_assign_their_labels(
         Path("dataset/training/positive-identification"), 'training-positive-identification')
-    print("now the negatives===========")
     training_data_negatives = load_wav_files_and_assign_their_labels(
         Path("dataset/training/negative-identification"), 'training-negative-identification')
 
@@ -33,7 +32,7 @@ def load_training_data_and_its_labels():
 
 def load_evaluation_data_and_its_labels():
     evaluation_data_positives = load_wav_files_and_assign_their_labels(
-        Path("../evaluation_positive_identification"), 'training-positive-identification')
+        Path("dataset/evaluation/positive_identification"), 'training-positive-identification')
     evaluation_data_negatives = load_wav_files_and_assign_their_labels(
         Path("dataset/evaluation/negative-identification"), 'training-negative-identification')
 
