@@ -19,7 +19,16 @@ class LabeledDataEntry(object):
         audio, sample_rate = librosa.load(
             self.file_path,
             sr=self.sample_rate,
-            res_type='kaiser_best')
+            res_type='kaiser_best'
+            )
+
+        if audio.shape[0] < 16000:
+            pass
+        elif audio.shape[0] > 16000:
+            pass
+        else:
+            pass
+
         self.mfcc = librosa.feature.mfcc(y=audio, sr=sample_rate, n_mfcc=40)
         print(f"{audio.shape}, {self.mfcc.shape}")
         self.mfccScaled = np.mean(self.mfcc.T, axis=0)
