@@ -1,3 +1,4 @@
 .DS_Store
 dataset/training/positive-identification/*.wav
 dataset/evaluation/positive-identification/*.wav
+.vscode/
