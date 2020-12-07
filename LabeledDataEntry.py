@@ -21,11 +21,12 @@ class LabeledDataEntry(object):
             sr=self.sample_rate,
             res_type='kaiser_best'
             )
-
-        if audio.shape[0] < 16000:
-            pass
-        elif audio.shape[0] > 16000:
-            pass
+        
+        # assuming 1000 ms for each training sample
+        if audio.shape[0] < self.sample_rate:
+            audio = np.append(audio, np.zeros(self.sample_rate - audio.shape[0]))
+        elif audio.shape[0] > self.sample_rate:
+            audio = audio[:self.sample_rate]
         else:
             pass
 
