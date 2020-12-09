@@ -41,7 +41,7 @@ def load_evaluation_data_and_its_labels():
 
     x_data = list(map(lambda x: x.mfcc, all_evaluation_data))
     y_labels = list(map(lambda x: x.label, all_evaluation_data))
-    x_data = np.reshape(x_data, [36, 40, 32, 1])
+    x_data = np.reshape(x_data, [84, 40, 32, 1])
 
     return np.asarray(x_data),  np.array(y_labels)
 
