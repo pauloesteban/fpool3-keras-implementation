@@ -4,9 +4,10 @@ import os
 
 class LabeledDataEntry(object):
 
-    def __init__(self, file_path, label):
+    def __init__(self, file_path, label, augmentation=None):
         self.file_path = file_path
         self.sample_rate = 16000 #read from file
+        self.augmentation = augmentation
 
         if label == 'training-negative-identification':
             self.label = 0
@@ -30,6 +31,7 @@ class LabeledDataEntry(object):
         else:
             pass
 
+        #TODO: Fill the MFCC matrix with zeros instead of time-domain
         self.mfcc = librosa.feature.mfcc(y=audio, sr=sample_rate, n_mfcc=40)
         self.mfccScaled = np.mean(self.mfcc.T, axis=0) #mean across coefficients
         #self.remove_unsuitable_training_file()
